@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playlist Spesial Buat Salwa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            text-align: center;
+            padding: 30px 20px;
+            margin: 0;
+        }
+        h1 {
+            color: #4a90e2;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .music-card {
+            background: white;
+            max-width: 400px;
+            margin: 0 auto 20px auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+        .disc {
+            width: 150px;
+            height: 150px;
+            background: #333;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+        }
+        .song-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .song-artist {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+        audio {
+            width: 100%;
+        }
+        .nav-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #4a90e2;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background 0.2s;
+        }
+        .nav-btn:hover {
+            background-color: #357abd;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎵 Playlist Musik Spesial 🎵</h1>
+    <p>Putar lagu ini biar suasana baca ucapannya makin syahdu~</p>
+
+    <div class="music-card">
+        <div class="disc">💿</div>
+        <div class="song-title">Happy Birthday To You</div>
+        <div class="song-artist">Special Song for Salwa</div>
+        
+        <!-- Pemutar Musik -->
+        <audio controls>
+            <audio> src="<iframe width="560" height="315" src="https://www.youtube.com/embed/IzvZ0gOXiNA?si=mnCbmzae4OK0UlsH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>"></audio>
+        </audio>
+    </div>
+
+    <!-- Tombol kembali ke halaman utama -->
+    <a href="index.html" class="nav-btn">🏠 Kembali ke Halaman Utama</a>
+
+</body>
+</html>
