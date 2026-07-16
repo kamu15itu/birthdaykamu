@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Salwa</title>
+    <style>
+        * {margin: 0; padding: 0; box-sizing: border-box: }
+        body {
+            background: linear-gradient(135deg, #ffe5sec 0%, #ffc2d1 100%);
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(255, 71, 126, 0.15);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            border: 2px solid #fff;
+            animation: apung 3s ease-in-out infinite;
+        }
+        @keyframes apung {
+            0%, 100% {transform: translateY(0); }
+            50% (transform: translateY(-10px);)
+        }
+        .cake {font-size: 5rem; margin-bottom: 10px; display:inline-block; }
+        h1 {color: #ff477e; font-size: 2.2rem; margin-bottom: 15px; }
+        p {color: #6c757d; font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px;}
+
+        /*Tombol Inretaktif */
+        .btn {
+            background: #ff477e;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 71, 126, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn:hover{background: #ff7096; transform: scale(1.05);}
+
+        /*Balon Hiasan */
+        .ballon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.8;
+            animation: terbang 6s linear infinite;
+            bottom: -50px;
+        }
+        @keyframes terbang {
+            0% {transform: translateY(0)rotate(0deg); opacity: 1;}
+            100%{ transform: translateY(-110vh)rotate(20deg); opacity: 0;}
+        }
+    </style>
+</head>
+<body>
+
+    <!--Efekk Balon Terbang Otomatis-->
+    <div class="ballon" style="left: 10%;animation-delay: 0s;"></div>
+</body>
+</html>
