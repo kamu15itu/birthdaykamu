@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Salwa</title>
+    <!-- Hubungkan ke ikon Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 100%);
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            padding-bottom: 100px; /* Jarak agar tidak tertutup player musik di bawah */
+        }
+
+        /* Navigasi atau Konten View */
+        .view-section {
+            display: none; /* Sembunyikan halaman secara default */
+            min-height: 80vh;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        /* Tampilkan halaman aktif */
+        .view-section.active {
+            display: flex;
+        }
+
+        /* --- STYLING HALAMAN UTAMA --- */
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(255, 71, 126, 0.15);
+            text-align: center;
+            max-width: 450px;
+            width: 90%;
+            border: 2px solid #fff;
+            animation: apung 3s ease-in-out infinite;
+        }
+        @keyframes apung {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .cake { font-size: 5rem; margin-bottom: 10px; display: inline-block; }
+        h1 { color: #ff477e; font-size: 2.2rem; margin-bottom: 15px; }
+        p { color: #6c757d; font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px; }
+
+        .btn {
+            background: #ff477e;
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 71, 126, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn:hover { background: #ff7096; transform: scale(1.05); }
+
+        /* Tombol Navigasi Menu */
+        .nav-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .nav-link-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .nav-link-btn:hover { transform: scale(1.05); }
+        .btn-pink { background-color: #d1497b; }
+        .btn-blue { background-color: #4a90e2; }
+
+        /* --- STYLING GALERI FOTO --- */
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .photo-card {
+            background: white;
+            padding: 15px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 250px;
+            transition: transform 0.3s;
+        }
+        .photo-card:hover { transform: scale(1.05); }
+        .photo-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        /* --- STYLING AUDIO CONTROLLER PERSISTEN (DI BAWAH LAYAR) --- */
+        .music-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #ffccd5;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 999;
+            width: 90%;
+            max-width: 450px;
+        }
+        .music-info {
+            flex-grow: 1;
+            font-size: 0.85rem;
+            color: #333;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .music-controls button {
+            background: #ff477e;
+            border: none;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(255, 71, 126, 0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ELEMENT AUDIO -->
+    <!-- Ganti URL src dengan file mp3 Anda (bisa file lokal di VS Code, atau link internet) -->
+    <audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+
+    <!-- 1. HALAMAN UTAMA (HOME) -->
+    <section id="view-home" class="view-section active">
+        <div class="container">
+            <span class="cake">🎂</span>
+            <h1>Happy Birthday Salwa✨</h1>
+            <p>Di Tanggal dan Bulan ini dilahirkannya Seorang Anak Perempuan yang cantik. Hari ini sangat spesial karena seseorang yang sangat spesial sedang berulang tahun. Aku berharap semua kebaikan selalu menyertai setiap langkahmu ya! 🤍</p>
+            <button class="btn" onclick="tampilKejutan()">Buka Kado Digital 🎁</button>
+        </div>
+        <div class="nav-container">
+            <button class="nav-link-btn btn-pink" onclick="switchView('view-gallery')">📸 Lihat Galeri Foto</button>
+            <button class="nav-link-btn btn-blue" onclick="switchView('view-music')">🎵 Buka Playlist Musik</button>
+        </div>
+    </section>
+
+    <!-- 2. HALAMAN GALERI FOTO -->
+    <section id="view-gallery" class="view-section">
+        <h1 style="margin-bottom: 30px;">📸 Foto Salwa 🌟</h1>
+        <div class="gallery-container">
+            <div class="photo-card">
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=400" alt="Foto 1">
+            </div>
+            <div class="photo-card">
+                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400" alt="Foto 2">
+            </div>
+            <div class="photo-card">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=400" alt="Foto 3">
+            </div>
+        </div>
+        <button class="nav-link-btn btn-pink" style="margin-top: 40px;" onclick="switchView('view-home')">🏠 Kembali ke Home</button>
+    </section>
+
+    <!-- 3. HALAMAN PLAYLIST MUSIK / YOUTUBE -->
+    <section id="view-music" class="view-section">
+        <h1 style="margin-bottom: 20px;">🎵 Playlist Musik Spesial 🎵</h1>
+        <div style="background: white; padding: 25px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 450px; width: 90%; text-align: center;">
+            <p style="margin-bottom: 15px;">Kamu juga bisa memutar video YouTube pilihan di bawah secara manual!</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px;">
+                <iframe style="position: absolute; top:0; left:0; width:100%; height:100%;" src="https://www.youtube.com/embed/IzvZ0gOXiNA?si=EKE96CiDXgKSPya8" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <button class="nav-link-btn btn-blue" style="margin-top: 30px;" onclick="switchView('view-home')">🏠 Kembali ke Home</button>
+    </section>
+
+    <!-- PLAYER MUSIK GLOBAL PERSISTEN (STAY AT THE BOTTOM) -->
+    <div class="music-bar">
+        <i data-lucide="music" style="color: #ff477e;"></i>
+        <div class="music-info">
+            <strong id="song-title">Melodi Indah Salwa (Piano Instrumental)</strong>
+            <div style="font-size: 0.75rem; color: #888;">Musik Latar Belakang Aktif</div>
+        </div>
+        <div class="music-controls">
+            <button id="play-btn" onclick="togglePlay()">
+                <i data-lucide="play" id="play-icon"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Inisialisasi ikon Lucide
+        lucide.createIcons();
+
+        const audio = document.getElementById('bg-music');
+        const playBtn = document.getElementById('play-btn');
+
+        // Fungsi berpindah halaman secara instan (SPA) tanpa refresh
+        function switchView(viewId) {
+            // Sembunyikan semua section
+            document.querySelectorAll('.view-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Tampilkan section yang dituju
+            document.getElementById(viewId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Fungsi Play & Pause Musik
+        function togglePlay() {
+            if (audio.paused) {
+                audio.play();
+                document.getElementById('play-icon').setAttribute('data-lucide', 'pause');
+            } else {
+                audio.pause();
+                document.getElementById('play-icon').setAttribute('data-lucide', 'play');
+            }
+            lucide.createIcons(); // render ulang ikon
+        }
+
+        function tampilKejutan() {
+            alert("Surprise!!\n\nMakasih ya udah hadir dihidupku 💖");
+            // Otomatis memutar lagu saat kado dibuka jika belum berputar
+            if (audio.paused) {
+                togglePlay();
+            }
+        }
+    </script>
+</body>
+</html>
